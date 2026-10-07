@@ -3,844 +3,292 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/fontawesome-all.css">
 <title>Ramesh Kumar — Mobile Application Developer</title>
-
 <style>
-:root{
-  color-scheme:light;
-  --bg:#f7f9fc;
-  --bg2:#ffffff;
-  --card:#ffffff;
-  --text:#182230;
-  --muted:#667085;
-  --line:#e5eaf0;
-  --accent:#4f7cff;
-  --accent2:#7b61ff;
-  --white:#fff
-}
-
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  line-height:1.6
-}
-
-.app{
-  min-height:100vh;
-  background:linear-gradient(180deg,#f8fbff 0%,#fff 45%,#f7f9fc 100%)
-}
-
-a{
-  color:inherit;
-  text-decoration:none
-}
-
-.wrap{
-  width:min(1120px,calc(100% - 40px));
-  margin:auto
-}
-
-.nav{
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid var(--line)
-}
-
-.brand{
-  font-weight:800;
-  letter-spacing:.2px
-}
-
-.brand span{
-  color:var(--accent)
-}
-
-.navlinks{
-  display:flex;
-  gap:26px;
-  color:#667085;
-  font-size:14px
-}
-
-.navlinks a:hover{
-  color:var(--accent)
-}
-
-.hero{
-  padding:92px 0 76px;
-  display:grid;
-  grid-template-columns:1.35fr .8fr;
-  gap:60px;
-  align-items:center
-}
-
-.eyebrow{
-  color:var(--accent);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:12px;
-  font-weight:700
-}
-
-.hero h1{
-  font-size:clamp(44px,7vw,78px);
-  line-height:1.02;
-  margin:16px 0
-}
-
-.hero h1 em{
-  font-style:normal;
-  color:var(--accent)
-}
-
-.hero p{
-  font-size:19px;
-  color:var(--muted);
-  max-width:690px
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  margin-top:30px;
-  flex-wrap:wrap
-}
-
-.btn{
-  padding:12px 18px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  font-weight:700;
-  font-size:14px;
-  background:#fff
-}
-
-.btn.primary{
-  background:var(--accent);
-  color:#fff;
-  border-color:var(--accent);
-  box-shadow:0 8px 24px rgba(79,124,255,.2)
-}
-
-.btn:hover{
-  transform:translateY(-1px)
-}
-
-.visual{
-  position:relative;
-  min-height:330px;
-  display:grid;
-  place-items:center
-}
-
-.orb{
-  width:270px;
-  height:270px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle at 35% 30%,
-    #fff 0 3%,
-    #b9d5ff 8%,
-    #8caeff 27%,
-    #c8bcff 58%,
-    transparent 70%
-  );
-  filter:blur(.2px);
-  opacity:.75;
-  box-shadow:0 0 90px rgba(76,143,255,.18)
-}
-
-.phone{
-  position:absolute;
-  width:180px;
-  height:310px;
-  border:7px solid #fff;
-  border-radius:30px;
-  background:#f8fbff;
-  box-shadow:0 30px 80px rgba(40,65,100,.18);
-  transform:rotate(8deg);
-  padding:13px
-}
-
-.screen{
-  height:100%;
-  border-radius:19px;
-  background:linear-gradient(145deg,#edf5ff,#fff);
-  padding:18px
-}
-
-.screen .bar{
-  height:8px;
-  width:55%;
-  background:#8fb4ff;
-  border-radius:20px;
-  margin-bottom:22px
-}
-
-.screen .block{
-  height:58px;
-  border:1px solid #dce7f5;
-  border-radius:13px;
-  margin:10px 0;
-  background:#fff
-}
-
-.screen .small{
-  height:35px
-}
-
-.section{
-  padding:78px 0
-}
-
-.section h2{
-  font-size:36px;
-  margin:0 0 12px
-}
-
-.lead{
-  color:var(--muted);
-  max-width:760px
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:34px
-}
-
-.stat,
-.card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:24px;
-  box-shadow:0 10px 35px rgba(28,45,75,.05)
-}
-
-.stat strong{
-  font-size:34px;
-  display:block;
-  color:var(--accent)
-}
-
-.stat span{
-  color:var(--muted);
-  font-size:14px
-}
-
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:25px
-}
-
-.tag{
-  padding:9px 13px;
-  border-radius:999px;
-  border:1px solid #dce5f0;
-  background:#f8fbff;
-  color:#536174;
-  font-size:13px
-}
-
-.timeline{
-  margin-top:32px;
-  border-left:1px solid #d9e2ee;
-  padding-left:25px;
-  display:grid;
-  gap:25px
-}
-
-.job{
-  position:relative
-}
-
-.job:before{
-  content:"";
-  position:absolute;
-  left:-31px;
-  top:7px;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 0 5px #f7f9fc
-}
-
-.job .date{
-  color:var(--accent);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.5px
-}
-
-.job h3{
-  margin:5px 0 0;
-  font-size:20px
-}
-
-.job p{
-  margin:2px 0;
-  color:var(--muted)
-}
-
-.projects{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-  margin-top:30px
-}
-
-.project{
-  min-height:270px;
-  display:flex;
-  flex-direction:column
-}
-
-.project .type{
-  font-size:12px;
-  color:var(--accent);
-  text-transform:uppercase;
-  letter-spacing:1.2px
-}
-
-.project h3{
-  font-size:22px;
-  margin:10px 0 8px;
-  line-height:1.3
-}
-
-.project p{
-  color:var(--muted);
-  margin:0 0 22px;
-  font-size:15px;
-  line-height:1.7
-}
-
-.project .tags{
-  margin-top:auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px
-}
-
-.contact{
-  padding:78px 0 95px
-}
-
-.contactbox{
-  padding:42px;
-  border:1px solid #dce5f0;
-  border-radius:22px;
-  background:linear-gradient(135deg,#eef5ff,#fff)
-}
-
-.contactbox h2{
-  font-size:42px;
-  margin:0 0 10px
-}
-
-.email{
-  display:inline-block;
-  margin-top:18px;
-  color:var(--accent);
-  font-weight:700
-}
-
-.footer{
-  border-top:1px solid var(--line);
-  padding:25px 0;
-  color:#8190a3;
-  font-size:13px;
-  display:flex;
-  justify-content:space-between
-}
-
-.mobile-menu{
-  display:none
-}
-
-@media(max-width:800px){
-  .navlinks{
-    display:none
-  }
-
-  .mobile-menu{
-    display:block;
-    color:#b7c5d9
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding:65px 0
-  }
-
-  .visual{
-    min-height:280px;
-    order:-1
-  }
-
-  .orb{
-    width:210px;
-    height:210px
-  }
-
-  .phone{
-    width:150px;
-    height:260px
-  }
-
-  .stats,
-  .projects{
-    grid-template-columns:1fr
-  }
-
-  .section{
-    padding:58px 0
-  }
-
-  .contactbox h2{
-    font-size:32px
-  }
-
-  .footer{
-    gap:12px;
-    flex-direction:column
-  }
-
-  .wrap{
-    width:min(100% - 28px,1120px)
-  }
-}
+:root{color-scheme:light;--bg:#f7f9fc;--bg2:#ffffff;--card:#ffffff;--text:#182230;--muted:#667085;--line:#e5eaf0;--accent:#4f7cff;--accent2:#7b61ff;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}.app{min-height:100vh;background:linear-gradient(180deg,#f8fbff 0%,#fff 45%,#f7f9fc 100%)}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}.navlinks{display:flex;gap:26px;color:#667085;font-size:14px}.navlinks a:hover{color:var(--accent)}.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.35fr .8fr;gap:60px;align-items:center}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700}.hero h1{font-size:clamp(44px,7vw,78px);line-height:1.02;margin:16px 0}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{font-size:19px;color:var(--muted);max-width:690px}.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}.btn{padding:12px 18px;border-radius:10px;border:1px solid var(--line);font-weight:700;font-size:14px;background:#fff}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 8px 24px rgba(79,124,255,.2)}.btn:hover{transform:translateY(-1px)}.visual{position:relative;min-height:330px;display:grid;place-items:center}.orb{width:270px;height:270px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 3%,#b9d5ff 8%,#8caeff 27%,#c8bcff 58%,transparent 70%);filter:blur(.2px);opacity:.75;box-shadow:0 0 90px rgba(76,143,255,.18)}.phone{position:absolute;width:180px;height:310px;border:7px solid #fff;border-radius:30px;background:#f8fbff;box-shadow:0 30px 80px rgba(40,65,100,.18);transform:rotate(8deg);padding:13px}.screen{height:100%;border-radius:19px;background:linear-gradient(145deg,#edf5ff,#fff);padding:18px}.screen .bar{height:8px;width:55%;background:#8fb4ff;border-radius:20px;margin-bottom:22px}.screen .block{height:58px;border:1px solid #dce7f5;border-radius:13px;margin:10px 0;background:#fff}.screen .small{height:35px}.section{padding:78px 0}.section h2{font-size:36px;margin:0 0 12px}.lead{color:var(--muted);max-width:760px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.stat,.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 35px rgba(28,45,75,.05)}.stat strong{font-size:34px;display:block;color:var(--accent)}.stat span{color:var(--muted);font-size:14px}.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.tag{padding:9px 13px;border-radius:999px;border:1px solid #dce5f0;background:#f8fbff;color:#536174;font-size:13px}.timeline{margin-top:32px;border-left:1px solid #d9e2ee;padding-left:25px;display:grid;gap:25px}.job{position:relative}.job:before{content:"";position:absolute;left:-31px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #f7f9fc}.job .date{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.5px}.job h3{margin:5px 0 0;font-size:20px}.job p{margin:2px 0;color:var(--muted)}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}.project{min-height:270px;display:flex;flex-direction:column}.project .type{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px}.project h3{font-size:22px;margin:10px 0 8px;line-height:1.3}.project p{color:var(--muted);margin:0 0 22px;font-size:15px;line-height:1.7}.project .tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:7px}.contact{padding:78px 0 95px}.contactbox{padding:42px;border:1px solid #dce5f0;border-radius:22px;background:linear-gradient(135deg,#eef5ff,#fff)}.contactbox h2{font-size:42px;margin:0 0 10px}.email{display:inline-block;margin-top:18px;color:var(--accent);font-weight:700}.footer{border-top:1px solid var(--line);padding:25px 0;color:#8190a3;font-size:13px;display:flex;justify-content:space-between}.mobile-menu{display:none}
+@media(max-width:800px){.navlinks{display:none}.mobile-menu{display:block;color:#b7c5d9}.hero{grid-template-columns:1fr;padding:65px 0}.visual{min-height:280px;order:-1}.orb{width:210px;height:210px}.phone{width:150px;height:260px}.stats,.projects{grid-template-columns:1fr}.section{padding:58px 0}.contactbox h2{font-size:32px}.footer{gap:12px;flex-direction:column}.wrap{width:min(100% - 28px,1120px)}}
 </style>
 </head>
-
 <body>
 <div class="app">
-
-<header class="wrap nav">
-  <a class="brand" href="#top">Ramesh<span>.</span></a>
-
-  <nav class="navlinks">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <span class="mobile-menu">☰</span>
-</header>
+<header class="wrap nav"><a class="brand" href="#top">Ramesh<span>.</span></a><nav class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav><span class="mobile-menu">☰</span></header>
 
 <main id="top">
 
 <section class="wrap hero">
-  <div>
-    <div class="eyebrow">Mobile Application Developer</div>
+<div>
+<div class="eyebrow">Mobile Application Developer</div>
+<h1>Hi, I'm Ramesh Kumar.<br><em>I build mobile experiences.</em></h1>
+<p>Mobile app developer with a strong track record of building efficient, business-focused mobile applications across e-commerce, healthcare, enterprise, inventory and catalogue workflows.</p>
+<div class="actions">
+<a class="btn primary" href="#projects">View Projects</a>
+<a class="btn" href="#contact">Contact Me</a>
+</div>
+</div>
 
-    <h1>
-      Hi, I'm Ramesh Kumar.<br>
-      <em>I build mobile experiences.</em>
-    </h1>
-
-    <p>
-      Mobile app developer with a strong track record of building efficient,
-      business-focused mobile applications across e-commerce, healthcare,
-      enterprise, inventory and catalogue workflows.
-    </p>
-
-    <div class="actions">
-      <a class="btn primary" href="#projects">View Projects</a>
-      <a class="btn" href="#contact">Contact Me</a>
-    </div>
-  </div>
-
-  <div class="visual">
-    <div class="orb"></div>
-
-    <div class="phone">
-      <div class="screen">
-        <div class="bar"></div>
-        <div class="block"></div>
-        <div class="block small"></div>
-        <div class="block"></div>
-        <div class="block small"></div>
-      </div>
-    </div>
-  </div>
+<div class="visual">
+<div class="orb"></div>
+<div class="phone">
+<div class="screen">
+<div class="bar"></div>
+<div class="block"></div>
+<div class="block small"></div>
+<div class="block"></div>
+<div class="block small"></div>
+</div>
+</div>
+</div>
 </section>
 
 <section class="wrap section" id="about">
-  <h2>About Me</h2>
-
-  <p class="lead">
-    I love going through the entire product journey — from concept and design
-    to development and launch. My work spans consumer apps, healthcare
-    solutions, HRMS, e-commerce, inventory management and digital catalogues.
-    Over the years, I have worked on applications for different business
-    domains, collaborating closely with teams to turn ideas and requirements
-    into reliable mobile products.
-  </p>
-
-  <div class="stats">
-    <div class="stat">
-      <strong>10+</strong>
-      <span>Years of mobile development</span>
-    </div>
-
-    <div class="stat">
-      <strong>20+</strong>
-      <span>Projects represented here</span>
-    </div>
-  </div>
+<h2>About Me</h2>
+<p class="lead">I love going through the entire product journey — from concept and design to development and launch. My work spans consumer apps, healthcare solutions, HRMS, e-commerce, inventory management and digital catalogues. Over the years, I have worked on applications for different business domains, collaborating closely with teams to turn ideas and requirements into reliable mobile products.</p>
+<div class="stats">
+<div class="stat"><strong>10+</strong><span>Years of mobile development</span></div>
+<div class="stat"><strong>20+</strong><span>Projects represented here</span></div>
+</div>
 </section>
 
 <section class="wrap section" id="skills">
-  <h2>Skills & Technologies</h2>
-
-  <p class="lead">
-    A practical mobile development toolkit built through production applications.
-  </p>
-
-  <div class="skills">
-    <span class="tag">Android</span>
-    <span class="tag">Java</span>
-    <span class="tag">Kotlin</span>
-    <span class="tag">REST APIs</span>
-    <span class="tag">Firebase</span>
-    <span class="tag">FCM</span>
-    <span class="tag">E-commerce</span>
-    <span class="tag">Healthcare</span>
-    <span class="tag">Inventory</span>
-    <span class="tag">Digital Catalogue</span>
-    <span class="tag">RFID</span>
-    <span class="tag">Barcode Scanning</span>
-    <span class="tag">Git</span>
-    <span class="tag">GitLab</span>
-  </div>
+<h2>Skills & Technologies</h2>
+<p class="lead">A practical mobile development toolkit built through production applications.</p>
+<div class="skills">
+<span class="tag">Android</span>
+<span class="tag">Java</span>
+<span class="tag">Kotlin</span>
+<span class="tag">REST APIs</span>
+<span class="tag">Firebase</span>
+<span class="tag">FCM</span>
+<span class="tag">E-commerce</span>
+<span class="tag">Healthcare</span>
+<span class="tag">Inventory</span>
+<span class="tag">Digital Catalogue</span>
+<span class="tag">RFID</span>
+<span class="tag">Barcode Scanning</span>
+<span class="tag">Git</span>
+<span class="tag">GitLab</span>
+</div>
 </section>
 
 <section class="wrap section" id="experience">
-  <h2>Experience</h2>
-
-  <p class="lead">
-    Professional journey in mobile application development.
-  </p>
-
-  <div class="timeline">
-
-    <article class="job">
-      <div class="date">MAR 2021 — PRESENT</div>
-      <h3>Sr. Fluter app Developer</h3>
-      <p>Sparkle Software Solutions Pvt Ltd</p>
-    </article>
-
-    <article class="job">
-      <div class="date">NOV 2018 — MAR 2021</div>
-      <h3>Android Developer</h3>
-      <p>Aegis Health Solutions Pvt Ltd</p>
-    </article>
-
-    <article class="job">
-      <div class="date">JUL 2015 — OCT 2018</div>
-      <h3>Android Developer</h3>
-      <p>Hands In Technology</p>
-    </article>
-
-  </div>
+<h2>Experience</h2>
+<p class="lead">Professional journey in mobile application development.</p>
+<div class="timeline">
+<article class="job">
+<div class="date">MAR 2021 — PRESENT</div>
+<h3>Sr. Fluter app Developer</h3>
+<p>Sparkle Software Solutions Pvt Ltd</p>
+</article>
+<article class="job">
+<div class="date">NOV 2018 — MAR 2021</div>
+<h3>Android Developer</h3>
+<p>Aegis Health Solutions Pvt Ltd</p>
+</article>
+<article class="job">
+<div class="date">JUL 2015 — OCT 2018</div>
+<h3>Android Developer</h3>
+<p>Hands In Technology</p>
+</article>
+</div>
 </section>
 
 <section class="wrap section" id="projects">
+<h2>Featured Projects</h2>
+<p class="lead">A collection of mobile applications built across jewellery, enterprise, HRMS, inventory &amp; RFID, healthcare, education, e-commerce, fitness, access control, and digital productivity solutions.</p>
 
-  <h2>Featured Projects</h2>
+<div class="projects">
 
-  <p class="lead">
-    A collection of mobile applications built across jewellery, enterprise,
-    HRMS, inventory &amp; RFID, healthcare, education, e-commerce, fitness,
-    access control, and digital productivity solutions.
-  </p>
+<article class="card project">
+<div class="type">Flutter / Jewellery</div>
+<h3>KGK B2B Jewellery</h3>
+<p>B2B jewellery application for KGK, enabling business users to explore jewellery collections, view detailed product information, customize products, create digital catalogues, scan barcodes, compare products, and manage their shopping experience.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.kgk.dms" target="_blank" rel="noopener">Android ↗</a>
+<a class="tag" href="https://apps.apple.com/us/app/kgk-b2b-jewellery/id6767518736" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-  <div class="projects">
+<article class="card project">
+<div class="type">Flutter / HRMS</div>
+<h3>KIS HRMS</h3>
+<p>An enterprise HR management application for KGK employees, designed to simplify everyday workforce operations including attendance tracking, leave management, business travel requests, employee directory, and multiple approval workflows.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.kgk.kis" target="_blank" rel="noopener">Android ↗</a>
+<a class="tag" href="https://apps.apple.com/us/app/kis-hrms/id6744892292" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Flutter / Jewellery</div>
-      <h3>KGK B2B Jewellery</h3>
-      <p>
-        B2B jewellery application for KGK, enabling business users to explore
-        jewellery collections, view detailed product information, customize
-        products, create digital catalogues, scan barcodes, compare products,
-        and manage their shopping experience.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.kgk.dms" target="_blank" rel="noopener">Android ↗</a>
-        <a class="tag" href="https://apps.apple.com/us/app/kgk-b2b-jewellery/id6767518736" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Flutter / Enterprise</div>
+<h3>EIS prime</h3>
+<p>Mobile product catalogue application for creating customer-specific and market-wise catalogues, helping businesses present product information and streamline their sales process.</p>
+<div class="tags">
+<span class="tag">Flutter</span>
+<span class="tag">iOS</span>
+<a class="tag" href="https://apps.apple.com/in/app/eis-prime/id6503939339" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Flutter / HRMS</div>
-      <h3>KIS HRMS</h3>
-      <p>
-        An enterprise HR management application for KGK employees, designed
-        to simplify everyday workforce operations including attendance
-        tracking, leave management, business travel requests, employee
-        directory, and multiple approval workflows.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.kgk.kis" target="_blank" rel="noopener">Android ↗</a>
-        <a class="tag" href="https://apps.apple.com/us/app/kis-hrms/id6744892292" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Flutter / Jewellery</div>
+<h3>Digital Jewellery Library</h3>
+<p>Digital jewellery library application for exploring and organizing jewellery designs, featuring high-quality product imagery, interactive 360° product views, curated collections, jewellery insights, and the latest design trends.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.kgkjewellery.dljApp" target="_blank" rel="noopener">Android ↗</a>
+<a class="tag" href="https://apps.apple.com/us/app/digital-jewelery-library/id6478001805" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Flutter / Enterprise</div>
-      <h3>EIS prime</h3>
-      <p>
-        Mobile product catalogue application for creating customer-specific
-        and market-wise catalogues, helping businesses present product
-        information and streamline their sales process.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://apps.apple.com/in/app/eis-prime/id6503939339" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Inventory / RFID</div>
+<h3>Presto-RFID Scanner</h3>
+<p>Jewellery inventory and exhibition management application with Zebra RFID scanner integration, digital catalogue creation and sharing, and complete offline exhibition workflow management.</p>
+<div class="tags">
+<span class="tag">Android Tablet</span>
+<span class="tag">RFID</span>
+<span class="tag">Not on Store</span>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Flutter / Jewellery</div>
-      <h3>Digital Jewellery Library</h3>
-      <p>
-        Digital jewellery library application for exploring and organizing
-        jewellery designs, featuring high-quality product imagery, interactive
-        360° product views, curated collections, jewellery insights, and the
-        latest design trends.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.kgkjewellery.dljApp" target="_blank" rel="noopener">Android ↗</a>
-        <a class="tag" href="https://apps.apple.com/us/app/digital-jewelery-library/id6478001805" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Fitness / Rewards</div>
+<h3>Zing Move NFT</h3>
+<p>A Move-to-Earn fitness application that encourages users to stay active through daily movement tracking, fitness challenges, activity streaks, achievements, and digital rewards. The app provides a unified experience for tracking progress, completing goals, and engaging with the ZingMove ecosystem.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.zingmove.nft" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Inventory / RFID</div>
-      <h3>Presto-RFID Scanner</h3>
-      <p>
-        Jewellery inventory and exhibition management application with Zebra
-        RFID scanner integration, digital catalogue creation and sharing, and
-        complete offline exhibition workflow management.
-      </p>
-      <div class="tags">
-        <span class="tag">Android Tablet</span>
-        <span class="tag">RFID</span>
-        <span class="tag">Not on Store</span>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Attendance</div>
+<h3>EzAttendancePro</h3>
+<p>Employee attendance and HR self-service application for managing attendance, leave, holiday calendars, location-based attendance marking, and employee approval workflows.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.ez.attendance" target="_blank" rel="noopener">Android ↗</a>
+<a class="tag" href="https://apps.apple.com/us/app/ezattendancepro/id6736583996" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Fitness / Rewards</div>
-      <h3>Zing Move NFT</h3>
-      <p>
-        A Move-to-Earn fitness application that encourages users to stay active
-        through daily movement tracking, fitness challenges, activity streaks,
-        achievements, and digital rewards. The app provides a unified
-        experience for tracking progress, completing goals, and engaging with
-        the ZingMove ecosystem.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.zingmove.nft" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Education</div>
+<h3>School Basics</h3>
+<p>An education-focused application that simplifies the process of browsing and booking standard school books, helping students and parents conveniently arrange the required study materials.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.school.basics" target="_blank" rel="noopener">Android ↗</a>
+<a class="tag" href="https://apps.apple.com/in/app/school-basics/id6737064487" target="_blank" rel="noopener">iOS ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Attendance</div>
-      <h3>EzAttendancePro</h3>
-      <p>
-        Employee attendance and HR self-service application for managing
-        attendance, leave, holiday calendars, location-based attendance
-        marking, and employee approval workflows.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.ez.attendance" target="_blank" rel="noopener">Android ↗</a>
-        <a class="tag" href="https://apps.apple.com/us/app/ezattendancepro/id6736583996" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Education</div>
+<h3>Chikutales</h3>
+<p>An interactive early-learning application for toddlers and preschoolers, featuring educational games, puzzles, tracing, memory activities, and engaging lessons covering alphabets, numbers, colors, shapes, animals, and more, with offline learning support.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/developer?id=MAGIX+EDUTAINMENT" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Education</div>
-      <h3>School Basics</h3>
-      <p>
-        An education-focused application that simplifies the process of
-        browsing and booking standard school books, helping students and
-        parents conveniently arrange the required study materials.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.school.basics" target="_blank" rel="noopener">Android ↗</a>
-        <a class="tag" href="https://apps.apple.com/in/app/school-basics/id6737064487" target="_blank" rel="noopener">iOS ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Healthcare / Hygiene</div>
+<h3>Microgen Hygiene</h3>
+<p>Healthcare infection-control application providing disinfection guidelines, product information, dilution calculations, expert support, and online shopping.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.microgen" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Education</div>
-      <h3>Chikutales</h3>
-      <p>
-        An interactive early-learning application for toddlers and preschoolers,
-        featuring educational games, puzzles, tracing, memory activities, and
-        engaging lessons covering alphabets, numbers, colors, shapes, animals,
-        and more, with offline learning support.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/developer?id=MAGIX+EDUTAINMENT" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Utility</div>
+<h3>Keeper — Manage Offline Data</h3>
+<p>Personal productivity app with an encrypted password manager, digital Khata Book, card manager, and customer transaction management.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.rmb.keeper" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Healthcare / Hygiene</div>
-      <h3>Microgen Hygiene</h3>
-      <p>
-        Healthcare infection-control application providing disinfection
-        guidelines, product information, dilution calculations, expert support,
-        and online shopping.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.microgen" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Access Management</div>
+<h3>EzAccessPro</h3>
+<p>Mobile access control application that turns smartphones into digital credentials for secure, convenient access through BLE-enabled readers.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.rptl.ezaccess" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Utility</div>
-      <h3>Keeper — Manage Offline Data</h3>
-      <p>
-        Personal productivity app with an encrypted password manager, digital
-        Khata Book, card manager, and customer transaction management.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.rmb.keeper" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">HRMS</div>
+<h3>Infowan HR</h3>
+<p>Comprehensive HRMS and payroll application for managing employee records, attendance, leave, payroll, reimbursements, travel, performance, recruitment, and other workforce management operations.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.infowanhr" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Access Management</div>
-      <h3>EzAccessPro</h3>
-      <p>
-        Mobile access control application that turns smartphones into digital
-        credentials for secure, convenient access through BLE-enabled readers.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.rptl.ezaccess" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Education</div>
+<h3>Bhavani Science Classes</h3>
+<p>Student and parent education management application providing attendance updates, fee details, daily timetables, test scores, notices, complaints, and student profile information.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.bhavani.classes" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">HRMS</div>
-      <h3>Infowan HR</h3>
-      <p>
-        Comprehensive HRMS and payroll application for managing employee
-        records, attendance, leave, payroll, reimbursements, travel,
-        performance, recruitment, and other workforce management operations.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.infowanhr" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">E-commerce</div>
+<h3>Emax — Electronics Online</h3>
+<p>E-commerce application for shopping consumer electronics, featuring product discovery, advanced search and filters, secure payments, fast checkout, delivery and click &amp; collect, offers, returns, and extended warranty services.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.hit.emax" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Education</div>
-      <h3>Bhavani Science Classes</h3>
-      <p>
-        Student and parent education management application providing attendance
-        updates, fee details, daily timetables, test scores, notices,
-        complaints, and student profile information.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.bhavani.classes" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">Healthcare</div>
+<h3>Medicalwale.com</h3>
+<p>Healthcare platform connecting users with doctors and healthcare professionals, offering online consultations, appointments, medicines and health products, diagnostic services, and a wide range of healthcare services through a single digital platform.</p>
+<div class="tags">
+<span class="tag">Archived</span>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">E-commerce</div>
-      <h3>Emax — Electronics Online</h3>
-      <p>
-        E-commerce application for shopping consumer electronics, featuring
-        product discovery, advanced search and filters, secure payments, fast
-        checkout, delivery and click &amp; collect, offers, returns, and
-        extended warranty services.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.hit.emax" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
+<article class="card project">
+<div class="type">E-commerce / Recharge</div>
+<h3>Oyepe</h3>
+<p>Digital services application for mobile and DTH recharges, payment transfers, balance management, transaction tracking, and telecom, banking, and consumer product services.</p>
+<div class="tags">
+<a class="tag" href="https://play.google.com/store/apps/details?id=com.oyepe.mobilerecharge" target="_blank" rel="noopener">Android ↗</a>
+</div>
+</article>
 
-    <article class="card project">
-      <div class="type">Healthcare</div>
-      <h3>Medicalwale.com</h3>
-      <p>
-        Healthcare platform connecting users with doctors and healthcare
-        professionals, offering online consultations, appointments, medicines
-        and health products, diagnostic services, and a wide range of
-        healthcare services through a single digital platform.
-      </p>
-      <div class="tags">
-        <span class="tag">Archived</span>
-      </div>
-    </article>
-
-    <article class="card project">
-      <div class="type">E-commerce / Recharge</div>
-      <h3>Oyepe</h3>
-      <p>
-        Digital services application for mobile and DTH recharges, payment
-        transfers, balance management, transaction tracking, and telecom,
-        banking, and consumer product services.
-      </p>
-      <div class="tags">
-        <a class="tag" href="https://play.google.com/store/apps/details?id=com.oyepe.mobilerecharge" target="_blank" rel="noopener">Android ↗</a>
-      </div>
-    </article>
-
-  </div>
+</div>
 </section>
 
 <section class="wrap contact" id="contact">
-  <div class="contactbox">
+<div class="contactbox">
+<div class="eyebrow">Let's connect</div>
+<h2>Have a mobile project in mind?</h2>
+<p class="lead">For offline or online projects, feel free to get in touch.</p>
+<a class="email" href="mailto:rameshkmr869@gmail.com">rameshkmr869@gmail.com →</a><br>
+<a class="email" href="tel:+917304862366">+91 73048 62366 →</a>
 
-    <div class="eyebrow">Let's connect</div>
-
-    <h2>Have a mobile project in mind?</h2>
-
-    <p class="lead">
-      For offline or online projects, feel free to get in touch.
-    </p>
-
-    <a class="email" href="mailto:rameshkmr869@gmail.com">
-      rameshkmr869@gmail.com →
-    </a>
-
-    <br>
-
-    <a class="email" href="tel:+917304862366">
-      +91 73048 62366 →
-    </a>
-
-  </div>
+<div style="display:flex;gap:10px;margin-top:14px;align-items:center">
+<a href="https://www.linkedin.com/in/rmbhati" target="_blank" aria-label="LinkedIn" style="display:inline-flex;width:42px;height:42px;border-radius:50%;background:#333;color:#fff;align-items:center;justify-content:center;font-size:20px;font-family:Arial,sans-serif;font-weight:700">in</a>
+<a href="https://stackoverflow.com/users/5488423/ramesh-bhati" target="_blank" aria-label="Stack Overflow" style="display:inline-flex;width:42px;height:42px;border-radius:50%;background:#333;color:#fff;align-items:center;justify-content:center;font-size:21px;font-family:Arial,sans-serif;font-weight:700">S</a>
+<a href="https://facebook.com/rmbhati" target="_blank" aria-label="Facebook" style="display:inline-flex;width:42px;height:42px;border-radius:50%;background:#333;color:#fff;align-items:center;justify-content:center;font-size:20px;font-family:Arial,sans-serif;font-weight:700">f</a>
+<a href="https://twitter.com/rmbhati1991" target="_blank" aria-label="Twitter" style="display:inline-flex;width:42px;height:42px;border-radius:50%;background:#333;color:#fff;align-items:center;justify-content:center;font-size:18px;font-family:Arial,sans-serif;font-weight:700">X</a>
+<a href="https://www.instagram.com/bhati_rmb" target="_blank" aria-label="Instagram" style="display:inline-flex;width:42px;height:42px;border-radius:50%;background:#333;color:#fff;align-items:center;justify-content:center;font-size:20px;font-family:Arial,sans-serif;font-weight:700">◎</a>
+</div>
+</div>
 </section>
 
 </main>
 
 <footer class="wrap footer">
-  <span>© 2026 Ramesh Kumar</span>
-  <span>Mobile Application Developer</span>
+<span>© 2026 Ramesh Kumar</span>
+<span>Mobile Application Developer</span>
 </footer>
-
 </div>
 </body>
 </html>
